@@ -30,6 +30,7 @@
     </nav>
 
     <div class="header-icons">
+        <a href="index.html#products"><i class="fa-solid fa-magnifying-glass"></i></a>
         <a href="wishlist.html"><i class="fa-solid fa-heart"></i></a>
         <a href="cart.html" class="cart-icon">
             <i class="fa-solid fa-cart-shopping"></i>
@@ -47,6 +48,19 @@
 
     <div id="wishlist-items"><!-- Wishlist items load here --></div>
 </section>
+
+<div class="bottom-bar">
+    <a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a>
+    <a href="wishlist.html"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+    <a href="cart.html" class="cart-icon">
+        <i class="fa-solid fa-cart-shopping"></i><span>Cart</span>
+        <span class="bb-badge" id="bb-cart-count">0</span>
+    </a>
+    <button class="bb-order" onclick="orderNowGlobal()">
+        <i class="fa-brands fa-whatsapp"></i><span>Order Now</span>
+    </button>
+</div>
+<div class="toast" id="toast"></div>
 
 <script src="js/products.js"></script>
 <script src="js/cart.js"></script>
