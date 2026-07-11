@@ -99,9 +99,12 @@ header{
     position:sticky; top:0; z-index:1000;
     display:flex; justify-content:space-between; align-items:center;
     padding:14px 5%;
-    background:rgba(23,17,12,.92);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--card-line);
+    background-color:#3a1810;
+    background-image:
+        repeating-linear-gradient(45deg,  rgba(201,151,63,.07) 0 1px, transparent 1px 22px),
+        repeating-linear-gradient(-45deg, rgba(201,151,63,.07) 0 1px, transparent 1px 22px);
+    border-bottom:2px solid var(--gold);
+    box-shadow:0 6px 20px rgba(0,0,0,.35);
 }
 .logo{ display:flex; align-items:center; gap:12px; }
 .logo-mark{
@@ -129,8 +132,8 @@ nav a:hover::after{ width:100%; }
 .header-icons a, .header-icons button{
     width:42px; height:42px; border-radius:50%;
     display:flex; justify-content:center; align-items:center;
-    background:var(--card); color:var(--cream);
-    border:1px solid var(--card-line);
+    background:rgba(0,0,0,.25); color:var(--cream);
+    border:1px solid rgba(224,184,113,.25);
     transition:var(--ease);
 }
 .header-icons a:hover, .header-icons button:hover{
@@ -143,6 +146,28 @@ nav a:hover::after{ width:100%; }
     border-radius:50%; display:flex; justify-content:center; align-items:center;
     font-size:11px; font-weight:700;
 }
+
+/* ---------- Search Bar ---------- */
+.search-bar{
+    max-height:0; overflow:hidden;
+    background:var(--bg-alt); border-bottom:1px solid var(--card-line);
+    transition:max-height .35s ease;
+}
+.search-bar.active{ max-height:90px; }
+.search-bar-inner{
+    display:flex; align-items:center; gap:12px;
+    padding:16px 5%; max-width:700px; margin:auto;
+}
+.search-bar-inner > i{ color:var(--gold); font-size:16px; }
+#search-input{
+    flex:1; background:var(--card); border:1px solid var(--card-line);
+    color:var(--cream); padding:12px 18px; border-radius:50px;
+    outline:none; font-family:var(--body); font-size:15px;
+}
+#search-input:focus{ border-color:var(--gold); }
+#search-input::placeholder{ color:var(--muted); }
+#search-close{ color:var(--muted); font-size:20px; flex-shrink:0; }
+#search-close:hover{ color:var(--gold-soft); }
 
 /* ==========================================
    HERO
@@ -244,9 +269,10 @@ nav a:hover::after{ width:100%; }
 .category-card{
     background:var(--card); border:1px solid var(--card-line);
     border-radius:var(--radius); text-align:center; padding:34px 18px;
-    transition:var(--ease);
+    transition:var(--ease); cursor:pointer;
 }
-.category-card:hover{ transform:translateY(-6px); border-color:var(--gold); }
+.category-card:hover, .category-card.active{ transform:translateY(-6px); border-color:var(--gold); }
+.category-card.active{ background:var(--bg-alt); }
 .category-card i{ font-size:34px; color:var(--gold); margin-bottom:14px; }
 .category-card h3{ font-size:16px; font-family:var(--body); font-weight:600; }
 
@@ -278,14 +304,23 @@ nav a:hover::after{ width:100%; }
     padding:0 18px; color:var(--muted); font-size:13px;
 }
 .price{ padding:8px 18px 16px; color:var(--gold-soft); font-size:20px; font-weight:800; }
-.product-buttons{ display:flex; gap:10px; padding:0 18px 18px; }
-.cart-btn{
-    flex:1; background:var(--gold); color:#1a0f06;
-    padding:13px; border-radius:50px; font-weight:700; font-size:14px;
+.product-buttons{ display:flex; flex-direction:column; gap:10px; padding:0 18px 18px; }
+.order-now-btn{
+    width:100%; background:var(--gold); color:#1a0f06;
+    padding:13px; border-radius:50px; font-weight:800; font-size:14.5px;
+    display:flex; align-items:center; justify-content:center; gap:8px;
     transition:var(--ease);
 }
-.cart-btn:hover{ transform:scale(1.02); }
-.cart-btn.added{ background:#4c9a6a; color:#fff; }
+.order-now-btn:hover{ transform:translateY(-2px); box-shadow:0 12px 26px rgba(201,151,63,.3); }
+.product-buttons-row{ display:flex; gap:10px; }
+.cart-btn{
+    flex:1; background:transparent; color:var(--gold-soft);
+    border:1px solid var(--card-line);
+    padding:10px; border-radius:50px; font-weight:600; font-size:13px;
+    transition:var(--ease);
+}
+.cart-btn:hover{ border-color:var(--gold); }
+.cart-btn.added{ background:rgba(76,154,106,.15); color:#7bc99a; border-color:rgba(76,154,106,.4); }
 .wish-btn{
     width:48px; background:var(--bg-alt); color:var(--cream);
     border-radius:50%; border:1px solid var(--card-line);
@@ -360,12 +395,48 @@ footer hr{ border:none; height:1px; background:var(--card-line); margin:0 0 22px
 .copyright{ text-align:center; color:var(--muted); font-size:13px; }
 
 /* ==========================================
-   BACK TO TOP
+   STICKY BOTTOM BAR (mobile)
 ========================================== */
+.bottom-bar{
+    position:fixed; left:0; right:0; bottom:0; z-index:1000;
+    display:flex; justify-content:space-around; align-items:center;
+    background:#1d140d;
+    border-top:1px solid var(--card-line);
+    box-shadow:0 -8px 24px rgba(0,0,0,.35);
+    padding:8px 0 calc(8px + env(safe-area-inset-bottom));
+}
+.bottom-bar a, .bottom-bar button{
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+    color:var(--muted); font-size:11px; font-weight:600;
+    position:relative; padding:4px 10px;
+    background:none; border:none;
+}
+.bottom-bar i{ font-size:19px; }
+.bottom-bar a:hover, .bottom-bar button:hover{ color:var(--gold-soft); }
+.bottom-bar .bb-order{ color:var(--gold-soft); }
+.bottom-bar .bb-order i{ color:var(--gold); }
+.bb-badge{
+    position:absolute; top:-2px; right:2px;
+    width:16px; height:16px; background:var(--clay); color:#fff;
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:9.5px; font-weight:700;
+}
+body{ padding-bottom:70px; }
+
+/* ---------- Toast ---------- */
+.toast{
+    position:fixed; left:50%; bottom:90px; transform:translateX(-50%) translateY(20px);
+    background:#1d140d; border:1px solid var(--gold); color:var(--cream);
+    padding:13px 22px; border-radius:12px; font-size:14px; font-weight:600;
+    box-shadow:0 12px 30px rgba(0,0,0,.4);
+    opacity:0; pointer-events:none; transition:.3s ease;
+    z-index:2000; max-width:88vw; text-align:center;
+}
+.toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
 #topBtn{
-    position:fixed; bottom:26px; right:26px; z-index:900;
-    width:46px; height:46px; border-radius:50%;
-    background:var(--gold); color:#1a0f06; font-size:18px;
+    position:fixed; bottom:82px; right:18px; z-index:900;
+    width:44px; height:44px; border-radius:50%;
+    background:var(--gold); color:#1a0f06; font-size:17px;
     display:none; align-items:center; justify-content:center;
     box-shadow:0 10px 25px rgba(0,0,0,.4);
 }
