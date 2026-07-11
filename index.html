@@ -42,6 +42,7 @@
     </nav>
 
     <div class="header-icons">
+        <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
         <a href="cart.html" class="cart-icon">
             <i class="fa-solid fa-cart-shopping"></i>
@@ -49,6 +50,14 @@
         </a>
     </div>
 </header>
+
+<div class="search-bar" id="searchBar">
+    <div class="search-bar-inner">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-input" placeholder="Search handcrafted products...">
+        <button id="search-close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -68,7 +77,7 @@
 
     <div class="hero-image">
         <div class="frame">
-            <img src="images/products/mug2.jpg" alt="Majestic Coffer carved clay mug">
+            <img src="images/products/hero1.jpg" alt="Majestic Coffer carved clay mug">
         </div>
         <div class="hero-tag">Majestic Coffer — Original</div>
     </div>
@@ -133,7 +142,7 @@
 <section id="about">
     <div class="about-container">
         <div class="about-image">
-            <img src="images/products/mug1.jpg" alt="Majestic Coffer engraved clay mug">
+            <img src="images/products/story1.jpg" alt="Majestic Coffer handcrafted cup and saucer">
         </div>
 
         <div class="about-content">
@@ -208,6 +217,19 @@
     <hr>
     <p class="copyright">© 2026 Majestic Coffer. All Rights Reserved.</p>
 </footer>
+
+<div class="bottom-bar">
+    <a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a>
+    <a href="wishlist.html"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+    <a href="cart.html" class="cart-icon">
+        <i class="fa-solid fa-cart-shopping"></i><span>Cart</span>
+        <span class="bb-badge" id="bb-cart-count">0</span>
+    </a>
+    <button class="bb-order" onclick="orderNowGlobal()">
+        <i class="fa-brands fa-whatsapp"></i><span>Order Now</span>
+    </button>
+</div>
+<div class="toast" id="toast"></div>
 
 <script src="js/products.js"></script>
 <script src="js/cart.js"></script>
