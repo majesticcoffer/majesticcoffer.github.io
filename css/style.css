@@ -312,7 +312,7 @@ nav a:hover::after{ width:100%; }
     transition:var(--ease);
 }
 .order-now-btn:hover{ transform:translateY(-2px); box-shadow:0 12px 26px rgba(201,151,63,.3); }
-.product-buttons-row{ display:flex; gap:10px; }
+.product-buttons-row{ display:flex; gap:10px; align-items:stretch; }
 .cart-btn{
     flex:1; background:transparent; color:var(--gold-soft);
     border:1px solid var(--card-line);
@@ -322,13 +322,15 @@ nav a:hover::after{ width:100%; }
 .cart-btn:hover{ border-color:var(--gold); }
 .cart-btn.added{ background:rgba(76,154,106,.15); color:#7bc99a; border-color:rgba(76,154,106,.4); }
 .wish-btn{
-    width:48px; background:var(--bg-alt); color:var(--cream);
-    border-radius:50%; border:1px solid var(--card-line);
-    transition:var(--ease);
+    width:54px; background:rgba(65,105,225,.14); color:#4169e1;
+    border-radius:50%; border:1.5px solid rgba(65,105,225,.5);
+    display:flex; align-items:center; justify-content:center;
+    padding:10px; transition:var(--ease);
 }
-.wish-btn i{ font-size:16px; transition:.3s; }
-.wish-btn:hover{ border-color:var(--clay); }
-.wish-btn.active i{ color:var(--clay); }
+.wish-btn i{ font-size:19px; transition:.3s; }
+.wish-btn:hover{ background:rgba(65,105,225,.28); border-color:#4169e1; transform:scale(1.05); }
+.wish-btn.active{ background:#4169e1; border-color:#4169e1; }
+.wish-btn.active i{ color:#fff; }
 
 /* ==========================================
    STORY / ABOUT
