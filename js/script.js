@@ -18,17 +18,45 @@ window.addEventListener("load", () => {
 /* ---------- CART COUNT ---------- */
 function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const badge = document.getElementById("cart-count");
-    if (!badge) return;
-
     let total = 0;
     cart.forEach(item => { total += Number(item.quantity || 1); });
-    badge.textContent = total;
+
+    const badge = document.getElementById("cart-count");
+    if (badge) badge.textContent = total;
+
+    const bbBadge = document.getElementById("bb-cart-count");
+    if (bbBadge) bbBadge.textContent = total;
 }
 updateCartCount();
 
+/* ---------- TOAST ---------- */
+let toastTimer;
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
+}
+
 /* ---------- SEARCH ---------- */
+const searchBtn = document.getElementById("search-btn");
+const searchBar = document.getElementById("searchBar");
+const searchClose = document.getElementById("search-close");
 const search = document.getElementById("search-input");
+
+if (searchBtn && searchBar) {
+    searchBtn.onclick = () => {
+        searchBar.classList.toggle("active");
+        if (searchBar.classList.contains("active") && search) {
+            setTimeout(() => search.focus(), 300);
+        }
+    };
+}
+if (searchClose && searchBar) {
+    searchClose.onclick = () => searchBar.classList.remove("active");
+}
 if (search) {
     search.addEventListener("keyup", () => {
         const value = search.value.toLowerCase();
@@ -86,14 +114,19 @@ function renderProducts() {
             <p class="price">${product.price}</p>
 
             <div class="product-buttons">
-                <button class="cart-btn ${inCart ? 'added' : ''}" onclick="addToCart(${product.id})">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    ${inCart ? 'Added' : 'Add to Cart'}
+                <button class="order-now-btn" onclick="orderNow(${product.id})">
+                    <i class="fa-brands fa-whatsapp"></i> Order Now
                 </button>
+                <div class="product-buttons-row">
+                    <button class="cart-btn ${inCart ? 'added' : ''}" onclick="addToCart(${product.id})">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        ${inCart ? 'Added' : 'Add to Cart'}
+                    </button>
 
-                <button class="wish-btn ${inWishlist ? 'active' : ''}" onclick="addToWishlist(${product.id})">
-                    <i class="${inWishlist ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
-                </button>
+                    <button class="wish-btn ${inWishlist ? 'active' : ''}" onclick="addToWishlist(${product.id})">
+                        <i class="${inWishlist ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+                    </button>
+                </div>
             </div>
         </div>
         `;
@@ -102,5 +135,29 @@ function renderProducts() {
     productsContainer.innerHTML = html;
 }
 renderProducts();
+
+/* ---------- CATEGORY FILTER ---------- */
+const categoryCards = document.querySelectorAll(".category-card");
+categoryCards.forEach(card => {
+    card.addEventListener("click", () => {
+        const categoryName = card.querySelector("h3").innerText.trim();
+
+        const alreadyActive = card.classList.contains("active");
+        categoryCards.forEach(c => c.classList.remove("active"));
+
+        document.querySelectorAll(".product-card").forEach(pCard => {
+            const cat = pCard.querySelector(".cat")?.innerText.trim();
+            if (alreadyActive) {
+                pCard.style.display = "";
+            } else {
+                pCard.style.display = (cat === categoryName) ? "" : "none";
+            }
+        });
+
+        if (!alreadyActive) card.classList.add("active");
+
+        document.getElementById("products")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+});
 
 console.log("Majestic Coffer — site ready");

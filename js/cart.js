@@ -35,6 +35,39 @@ function addToCart(id) {
     if (typeof renderCart === "function") renderCart();
 }
 
+/* ---------- Order Now (add + go straight to checkout) ---------- */
+function orderNow(id) {
+    const product = products.find(item => item.id === id);
+    if (!product) return;
+
+    const existing = cart.find(item => item.id === id);
+    if (!existing) {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            quantity: 1
+        });
+        saveCart();
+    }
+
+    window.location.href = "cart.html";
+}
+
+/* ---------- Order Now (bottom bar — whole cart) ---------- */
+function orderNowGlobal() {
+    if (cart.length === 0) {
+        if (typeof showToast === "function") {
+            showToast("Your cart is empty. Add something first!");
+        } else {
+            alert("Your cart is empty. Add something first!");
+        }
+        return;
+    }
+    window.location.href = "cart.html";
+}
+
 /* ---------- Render Cart Page ---------- */
 function renderCart() {
     const cartItems = document.getElementById("cart-items");
