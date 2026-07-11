@@ -327,6 +327,8 @@ nav a:hover::after{ width:100%; }
     padding:44px; text-align:center; box-shadow:var(--shadow);
 }
 .contact-box p{ margin-bottom:16px; font-size:16px; }
+.contact-box p a{ transition:var(--ease); }
+.contact-box p a:hover{ color:var(--gold-soft); }
 .contact-box i{ color:var(--gold); margin-right:10px; }
 .contact-box strong{ display:block; color:var(--gold-soft); margin-bottom:2px; font-family:var(--display); }
 
