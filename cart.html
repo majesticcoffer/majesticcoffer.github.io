@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart | Majestic Coffer</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">
+        <div class="logo-mark">MC</div>
+        <div>
+            <h2>Majestic Coffer</h2>
+            <small>Luxury Handcrafted Store</small>
+        </div>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#products">Products</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-icons">
+        <a href="cart.html" class="cart-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cart-count">0</span>
+        </a>
+    </div>
+</header>
+
+<section class="cart-page">
+    <div class="section-title">
+        <span class="eyebrow">Your Selection</span>
+        <h2>Shopping Cart</h2>
+        <div class="lattice-rule"></div>
+    </div>
+
+    <div id="cart-items"><!-- Cart items load here --></div>
+
+    <div class="cart-summary">
+        <h3>Customer Information</h3>
+
+        <div class="customer-form">
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="customer-name" class="cart-input" placeholder="Full Name">
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-phone"></i>
+                <input type="tel" id="customer-phone" class="cart-input" placeholder="Phone Number">
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-location-dot"></i>
+                <textarea id="customer-address" class="cart-input" rows="4" placeholder="Delivery Address"></textarea>
+            </div>
+        </div>
+
+        <h3>Total: <span id="total-price">৳0</span></h3>
+
+        <button id="order-btn" class="btn" onclick="orderWhatsApp()">
+            <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+        </button>
+
+        <button id="clear-cart" class="btn-outline">Clear Cart</button>
+    </div>
+</section>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>

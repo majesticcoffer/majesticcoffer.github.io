@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wishlist | Majestic Coffer</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">
+        <div class="logo-mark">MC</div>
+        <div>
+            <h2>Majestic Coffer</h2>
+            <small>Luxury Handcrafted Store</small>
+        </div>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#products">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-icons">
+        <a href="wishlist.html"><i class="fa-solid fa-heart"></i></a>
+        <a href="cart.html" class="cart-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cart-count">0</span>
+        </a>
+    </div>
+</header>
+
+<section class="cart-page">
+    <div class="section-title">
+        <span class="eyebrow">Saved For Later</span>
+        <h2>My Wishlist ❤️</h2>
+        <div class="lattice-rule"></div>
+    </div>
+
+    <div id="wishlist-items"><!-- Wishlist items load here --></div>
+</section>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/script.js"></script>
+<script src="js/wishlist.js"></script>
+
+</body>
+</html>
