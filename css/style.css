@@ -425,6 +425,32 @@ footer hr{ border:none; height:1px; background:var(--card-line); margin:0 0 22px
 }
 body{ padding-bottom:70px; }
 
+/* ---------- Feature Info Modal ---------- */
+.feature-box{ cursor:pointer; }
+.modal-overlay{
+    position:fixed; inset:0; z-index:3000;
+    background:rgba(0,0,0,.6); backdrop-filter:blur(3px);
+    display:flex; align-items:center; justify-content:center;
+    padding:20px;
+    opacity:0; pointer-events:none; transition:.25s ease;
+}
+.modal-overlay.active{ opacity:1; pointer-events:auto; }
+.modal-card{
+    background:var(--card); border:1px solid var(--gold);
+    border-radius:var(--radius); padding:34px 28px;
+    max-width:420px; width:100%; text-align:center;
+    box-shadow:var(--shadow);
+    transform:translateY(16px); transition:.3s ease;
+}
+.modal-overlay.active .modal-card{ transform:translateY(0); }
+.modal-card i{ font-size:38px; color:var(--gold); margin-bottom:16px; }
+.modal-card h3{ font-size:22px; color:var(--cream); margin-bottom:14px; }
+.modal-card p{ color:var(--muted); line-height:1.8; font-size:15px; margin-bottom:22px; }
+.modal-close{
+    display:inline-block; padding:12px 30px; background:var(--gold);
+    color:#1a0f06; border-radius:50px; font-weight:700; font-size:14px;
+}
+
 /* ---------- Toast ---------- */
 .toast{
     position:fixed; left:50%; bottom:90px; transform:translateX(-50%) translateY(20px);
