@@ -83,8 +83,8 @@ h1,h2,h3{ font-family:var(--display); font-weight:600; letter-spacing:.2px; }
    TOP BAR
 ========================================== */
 .top-bar{
-    background:var(--clay);
-    color:#1a0f06;
+    background:#3a1810;
+    color:var(--gold-soft);
     text-align:center;
     padding:9px;
     font-size:13px;
@@ -115,7 +115,12 @@ header{
     color:var(--gold-soft);
     flex-shrink:0;
 }
-.logo h2{ color:var(--gold-soft); font-size:20px; line-height:1.1; }
+.logo-mark-img{
+    width:46px; height:46px; border-radius:50%;
+    object-fit:cover; flex-shrink:0;
+    border:1.5px solid var(--gold);
+}
+.logo .logo-name{ color:var(--gold-soft); font-size:20px; line-height:1.1; font-family:var(--display); font-weight:600; display:block; }
 .logo small{ color:var(--muted); font-size:11px; letter-spacing:.5px; }
 
 nav{ display:flex; gap:26px; }
@@ -231,6 +236,12 @@ nav a:hover::after{ width:100%; }
 @keyframes float{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
 
 /* ==========================================
+   PROMO BANNER
+========================================== */
+.promo-banner{ padding:0 5%; margin:10px 0; }
+.promo-banner img{ border-radius:16px; }
+
+/* ==========================================
    FEATURES STRIP
 ========================================== */
 .features{
@@ -293,7 +304,7 @@ nav a:hover::after{ width:100%; }
 .product-card img{ height:250px; object-fit:cover; }
 .badge{
     position:absolute; top:14px; left:14px;
-    background:var(--clay); color:#fff; padding:5px 13px;
+    background:var(--gold); color:#1a0f06; padding:5px 13px;
     border-radius:30px; font-size:11px; font-weight:700; letter-spacing:.3px;
 }
 .product-card h3{
