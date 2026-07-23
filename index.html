@@ -26,7 +26,7 @@
   "alternateName": "Majestic Coffer - Luxury Handcrafted Store",
   "url": "https://majesticcoffer.netlify.app/",
   "logo": "https://majesticcoffer.netlify.app/images/logo-512.png",
-  "sameAs": []
+  "sameAs": ["https://www.facebook.com/majesticcoffer/"]
 }
 </script>
 <meta name="description" content="Majestic Coffer — handcrafted clay mugs, cups and saucers, carved by artisans in Bangladesh.">
@@ -50,9 +50,9 @@
 
 <header>
     <a href="index.html" class="logo">
-        <div class="logo-mark">MC</div>
+        <img src="images/logo-new.png" alt="Majestic Coffer logo" class="logo-mark-img" width="46" height="46">
         <div>
-            <h2>Majestic Coffer</h2>
+            <span class="logo-name">Majestic Coffer</span>
             <small>Luxury Handcrafted Store</small>
         </div>
     </a>
@@ -66,20 +66,22 @@
     </nav>
 
     <div class="header-icons">
-        <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-        <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
-        <a href="cart.html" class="cart-icon">
+        <button id="search-btn" aria-label="Search products"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <a href="wishlist.html" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></a>
+        <a href="cart.html" class="cart-icon" aria-label="Shopping cart">
             <i class="fa-solid fa-cart-shopping"></i>
             <span id="cart-count">0</span>
         </a>
     </div>
 </header>
 
+<main>
+
 <div class="search-bar" id="searchBar">
     <div class="search-bar-inner">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" id="search-input" placeholder="Search handcrafted products...">
-        <button id="search-close"><i class="fa-solid fa-xmark"></i></button>
+        <button id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
     </div>
 </div>
 
@@ -101,10 +103,15 @@
 
     <div class="hero-image">
         <div class="frame">
-            <img src="images/products/hero1.jpg" alt="Majestic Coffer carved clay mug">
+            <img src="images/products/hero1.jpg" alt="Majestic Coffer carved clay mug" width="700" height="700">
         </div>
         <div class="hero-tag">Majestic Coffer — Original</div>
     </div>
+</section>
+
+<!-- BANNER -->
+<section class="promo-banner">
+    <img src="images/banner.jpg" alt="Majestic Coffer - Luxury Shopping Store" width="1600" height="500" loading="lazy">
 </section>
 
 <!-- FEATURES -->
@@ -175,7 +182,7 @@
 <section id="about">
     <div class="about-container">
         <div class="about-image">
-            <img src="images/products/story1.jpg" alt="Majestic Coffer handcrafted cup and saucer">
+            <img src="images/products/story1.jpg" alt="Majestic Coffer handcrafted cup and saucer" width="700" height="700" loading="lazy">
         </div>
 
         <div class="about-content">
@@ -220,13 +227,15 @@
 </section>
 
 <!-- FOOTER -->
+</main>
+
 <footer>
     <div class="footer-content">
         <div>
             <h3>Majestic Coffer</h3>
             <p>Handcrafted clay mugs, cups and gifts, made with love in Bangladesh.</p>
             <div class="footer-social">
-                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.facebook.com/majesticcoffer/" target="_blank"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="https://wa.me/8801345030520" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
@@ -254,7 +263,7 @@
 <div class="bottom-bar">
     <a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a>
     <a href="wishlist.html"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-    <a href="cart.html" class="cart-icon">
+    <a href="cart.html" class="cart-icon" aria-label="Shopping cart">
         <i class="fa-solid fa-cart-shopping"></i><span>Cart</span>
         <span class="bb-badge" id="bb-cart-count">0</span>
     </a>

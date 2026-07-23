@@ -26,7 +26,7 @@
   "alternateName": "Majestic Coffer - Luxury Handcrafted Store",
   "url": "https://majesticcoffer.netlify.app/",
   "logo": "https://majesticcoffer.netlify.app/images/logo-512.png",
-  "sameAs": []
+  "sameAs": ["https://www.facebook.com/majesticcoffer/"]
 }
 </script>
 
@@ -40,9 +40,9 @@
 
 <header>
     <a href="index.html" class="logo">
-        <div class="logo-mark">MC</div>
+        <img src="images/logo-new.png" alt="Majestic Coffer logo" class="logo-mark-img" width="46" height="46">
         <div>
-            <h2>Majestic Coffer</h2>
+            <span class="logo-name">Majestic Coffer</span>
             <small>Luxury Handcrafted Store</small>
         </div>
     </a>
@@ -55,18 +55,22 @@
     </nav>
 
     <div class="header-icons">
-        <a href="index.html#products"><i class="fa-solid fa-magnifying-glass"></i></a>
-        <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
-        <a href="cart.html" class="cart-icon">
+        <a href="index.html#products" aria-label="Search products"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="wishlist.html" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></a>
+        <a href="cart.html" class="cart-icon" aria-label="Shopping cart">
             <i class="fa-solid fa-cart-shopping"></i>
             <span id="cart-count">0</span>
         </a>
     </div>
 </header>
 
+<main>
+
 <section class="product-page">
     <div id="product-details"><!-- Product loads here --></div>
 </section>
+
+</main>
 
 <footer>
     <div class="footer-content">
@@ -89,7 +93,7 @@
 <div class="bottom-bar">
     <a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a>
     <a href="wishlist.html"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-    <a href="cart.html" class="cart-icon">
+    <a href="cart.html" class="cart-icon" aria-label="Shopping cart">
         <i class="fa-solid fa-cart-shopping"></i><span>Cart</span>
         <span class="bb-badge" id="bb-cart-count">0</span>
     </a>
