@@ -28,7 +28,7 @@ if (!container) {
     <div class="product-container">
         <div class="product-image">
             <div class="frame">
-                <img src="${product.image}" alt="${product.name}">
+                <img src="${product.image}" alt="${product.name}" width="600" height="600">
             </div>
         </div>
 
@@ -42,9 +42,9 @@ if (!container) {
             <p class="delivery">🚚 Delivery: ${product.delivery}</p>
 
             <div class="qty-box">
-                <button id="minus">−</button>
+                <button id="minus" aria-label="Decrease quantity">−</button>
                 <span id="qty">1</span>
-                <button id="plus">+</button>
+                <button id="plus" aria-label="Increase quantity">+</button>
             </div>
 
             <div class="product-buttons">

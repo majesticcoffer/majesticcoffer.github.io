@@ -53,7 +53,7 @@ function renderWishlist() {
     wishlist.forEach(item => {
         html += `
         <div class="cart-card">
-            <img src="${item.image}" alt="${item.name}">
+            <img src="${item.image}" alt="${item.name}" width="600" height="600">
             <div class="cart-info">
                 <h3>${item.name}</h3>
                 <p>${item.price}</p>
@@ -61,7 +61,7 @@ function renderWishlist() {
             <button class="btn-outline" style="padding:10px 16px;" onclick="moveToCart(${item.id})">
                 Move to Cart
             </button>
-            <button class="remove-btn" onclick="removeWishlist(${item.id})">
+            <button class="remove-btn" onclick="removeWishlist(${item.id})" aria-label="Remove ${item.name} from wishlist">
                 <i class="fa-solid fa-trash"></i>
             </button>
         </div>

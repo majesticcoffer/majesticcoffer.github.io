@@ -77,6 +77,7 @@ window.addEventListener("scroll", () => {
 const topBtn = document.createElement("button");
 topBtn.id = "topBtn";
 topBtn.innerHTML = "↑";
+topBtn.setAttribute("aria-label", "Back to top");
 document.body.appendChild(topBtn);
 
 window.addEventListener("scroll", () => {
@@ -106,7 +107,7 @@ function renderProducts() {
             <span class="badge">${product.badge}</span>
 
             <a href="product.html?id=${product.id}">
-                <img src="${product.image}" alt="${product.name}">
+                <img src="${product.image}" alt="${product.name}" width="600" height="600" loading="lazy">
             </a>
 
             <h3><a href="product.html?id=${product.id}">${product.name}</a></h3>
@@ -123,7 +124,7 @@ function renderProducts() {
                         ${inCart ? 'Added' : 'Add to Cart'}
                     </button>
 
-                    <button class="wish-btn ${inWishlist ? 'active' : ''}" onclick="addToWishlist(${product.id})">
+                    <button class="wish-btn ${inWishlist ? 'active' : ''}" onclick="addToWishlist(${product.id})" aria-label="${inWishlist ? 'Remove' : 'Add'} ${product.name} ${inWishlist ? 'from' : 'to'} wishlist">
                         <i class="${inWishlist ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
                     </button>
                 </div>
@@ -161,3 +162,47 @@ categoryCards.forEach(card => {
 });
 
 console.log("Majestic Coffer — site ready");
+
+/* ==========================================
+   FEATURE INFO MODAL
+========================================== */
+const featureContent = {
+    handcrafted: {
+        icon: "fa-solid fa-hand-holding-heart",
+        title: "Handcrafted",
+        text: "Every piece is shaped on the wheel and carved by hand by artisans in Bangladesh. Because nothing is machine-made, small variations in texture and shape are normal — that's the mark of a real handmade piece, not a flaw."
+    },
+    clay: {
+        icon: "fa-solid fa-gem",
+        title: "Natural Clay",
+        text: "We use genuine terracotta clay, not synthetic materials or mass-produced ceramic. The natural earthy color and texture you see is the real clay itself, fired the traditional way."
+    },
+    packaging: {
+        icon: "fa-solid fa-box-open",
+        title: "Safe Packaging",
+        text: "Clay is delicate, so every order is individually wrapped and cushioned before it goes in the box. We pack each order by hand to make sure it reaches you in one piece."
+    },
+    whatsapp: {
+        icon: "fa-brands fa-whatsapp",
+        title: "Order on WhatsApp",
+        text: "No account, no signup. Add items to your cart, enter your name, phone and address, and tap 'Order on WhatsApp' — your order details are sent straight to us to confirm and arrange delivery."
+    }
+};
+
+function openFeatureModal(key) {
+    const data = featureContent[key];
+    if (!data) return;
+
+    document.getElementById("featureModalIcon").className = data.icon;
+    document.getElementById("featureModalTitle").textContent = data.title;
+    document.getElementById("featureModalText").textContent = data.text;
+    document.getElementById("featureModal").classList.add("active");
+}
+
+function closeFeatureModal() {
+    document.getElementById("featureModal")?.classList.remove("active");
+}
+
+document.getElementById("featureModal")?.addEventListener("click", (e) => {
+    if (e.target.id === "featureModal") closeFeatureModal();
+});

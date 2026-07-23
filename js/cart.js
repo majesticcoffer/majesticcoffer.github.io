@@ -94,17 +94,17 @@ function renderCart() {
 
         html += `
         <div class="cart-card">
-            <img src="${item.image}" alt="${item.name}">
+            <img src="${item.image}" alt="${item.name}" width="600" height="600">
             <div class="cart-info">
                 <h3>${item.name}</h3>
                 <p>${item.price}</p>
                 <div class="qty-box">
-                    <button onclick="changeQty(${item.id},-1)">−</button>
+                    <button onclick="changeQty(${item.id},-1)" aria-label="Decrease quantity of ${item.name}">−</button>
                     <span>${item.quantity}</span>
-                    <button onclick="changeQty(${item.id},1)">+</button>
+                    <button onclick="changeQty(${item.id},1)" aria-label="Increase quantity of ${item.name}">+</button>
                 </div>
             </div>
-            <button class="remove-btn" onclick="removeCart(${item.id})">
+            <button class="remove-btn" onclick="removeCart(${item.id})" aria-label="Remove ${item.name} from cart">
                 <i class="fa-solid fa-trash"></i>
             </button>
         </div>
